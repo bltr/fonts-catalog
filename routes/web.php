@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', \App\Http\Controllers\Front\HomeController::class)->name('home');
+Route::get('/font_types/{category:slug}', \App\Http\Controllers\Front\CategoryController::class)->name('category');
+Route::get('/font/{font:slug}', \App\Http\Controllers\Front\FontController::class)->name('font');
