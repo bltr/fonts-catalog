@@ -1,19 +1,11 @@
 @extends('layout')
 
 @section('content')
-    <ul>
-        <li><a href="/">Главная</a></li>
-        @foreach($breadcrumbs as $breadcrumb)
-            <li><a href="{{ route('category', $breadcrumb['slug']) }}">{{ $breadcrumb['name'] }}</a></li>
-        @endforeach
-    </ul>
+    <x-breadcrumbs :breadcrumbs="$breadcrumbs"/>
 
-    <h1>{{ $category->name }}</h1>
+    <h1 class="">Тип шрифтов: {{ $category->name }}</h1>
 
-    <ul>
-        @foreach($fonts as $font)
-            <li><a href="{{ route('font', $font) }}">{{ $font->name }}</a></li>
-        @endforeach
-    </ul>
-    {{ $fonts->links() }}
+    <x-font-list :fonts="$fonts" />
+
+    <x-pagination :paginator="$fonts" />
 @endsection

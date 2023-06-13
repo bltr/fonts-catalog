@@ -1,11 +1,7 @@
 @extends('layout')
 
 @section('content')
+    <x-font-list :fonts="$fonts" />
 
-    <ul>
-    @foreach($fonts as $font)
-        <li><a href="{{ route('font', $font) }}">{{ $font->name }}</a></li>
-    @endforeach
-    </ul>
-    {{ $fonts->links() }}
+    <x-pagination :paginator="$fonts" />
 @endsection

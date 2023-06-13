@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 343.727 75" width="140px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<metadata>
+<vectornator:setting key="IsTimeLapseWatermarkDisabled" value="false"/>
+<vectornator:setting key="UndoHistoryDisabled" value="false"/>
+<vectornator:setting key="VNDimensionsVisible" value="true"/>
+<vectornator:setting key="VNSnapToGuides" value="true"/>
+<vectornator:setting key="WDCMYKEnabledKey" value="false"/>
+<vectornator:setting key="WDDisplayWhiteBackground" value="false"/>
+<vectornator:setting key="WDDynamicGuides" value="false"/>
+<vectornator:setting key="WDGuidesVisible" value="true"/>
+<vectornator:setting key="WDIsolateActiveLayer" value="false"/>
+<vectornator:setting key="WDOutlineMode" value="false"/>
+<vectornator:setting key="WDRulersVisible" value="true"/>
+<vectornator:setting key="WDSnapToEdges" value="false"/>
+<vectornator:setting key="WDSnapToGrid" value="false"/>
+<vectornator:setting key="WDSnapToPoints" value="false"/>
+<vectornator:setting key="WDUnits" value="Pixels"/>
+</metadata>
+<defs>
+<clipPath id="TextBounds">
+<rect height="69" width="134.031" x="-1.43579" y="4.03181"/>
+</clipPath>
+<clipPath id="TextBounds_2">
+<rect height="73.5268" width="208.245" x="139.859" y="4.81037"/>
+</clipPath>
+</defs>
+<g id="Слой-1" vectornator:layerName="Слой 1">
+<path d="M6.34355 0.186443L125.762 0.186443C129.194 0.186443 131.975 3.30778 131.975 7.15814L131.975 68.0221C131.975 71.8725 129.194 74.9938 125.762 74.9938L6.34355 74.9938C2.91214 74.9938 0.130438 71.8725 0.130438 68.0221L0.130438 7.15814C0.130438 3.30778 2.91214 0.186443 6.34355 0.186443Z" fill="#ed230d" fill-rule="evenodd" opacity="1" stroke="none"/>
+<g fill="#ffffff" opacity="1" stroke="none">
+<path clip-path="url(#TextBounds)" d="M40.1209 49.5357L25.2244 49.5357L22.3923 58.0318L13.3582 58.0318L28.7078 16.7974L36.5808 16.7974L52.0154 58.0318L42.9812 58.0318L40.1209 49.5357ZM27.5183 42.6539L37.8269 42.6539L32.6443 27.2193L27.5183 42.6539Z" fill-rule="evenodd"/>
+<path clip-path="url(#TextBounds)" d="M65.363 51.2066L83.4031 51.2066L83.4031 58.0318L56.8669 58.0318L56.8669 16.7974L65.363 16.7974L65.363 51.2066Z" fill-rule="evenodd"/>
+<path clip-path="url(#TextBounds)" d="M97.7703 51.2066L115.81 51.2066L115.81 58.0318L89.2742 58.0318L89.2742 16.7974L97.7703 16.7974L97.7703 51.2066Z" fill-rule="evenodd"/>
+</g>
+<g fill="#000000" opacity="1" stroke="none">
+<path clip-path="url(#TextBounds_2)" d="M166.423 47.992C166.423 46.3872 165.856 45.1553 164.723 44.2962C163.591 43.4372 161.551 42.5309 158.606 41.5775C155.661 40.624 153.329 39.6847 151.611 38.7596C146.929 36.2296 144.588 32.8218 144.588 28.536C144.588 26.3081 145.215 24.3209 146.471 22.5745C147.726 20.8281 149.53 19.464 151.88 18.4822C154.231 17.5005 156.869 17.0096 159.796 17.0096C162.741 17.0096 165.365 17.543 167.669 18.6097C169.972 19.6764 171.761 21.1821 173.035 23.1268C174.31 25.0714 174.947 27.2804 174.947 29.7537L166.451 29.7537C166.451 27.8657 165.856 26.3978 164.667 25.3499C163.477 24.3021 161.806 23.7781 159.654 23.7781C157.577 23.7781 155.963 24.2171 154.811 25.095C153.66 25.973 153.084 27.1294 153.084 28.5643C153.084 29.9048 153.759 31.0281 155.109 31.9344C156.459 32.8406 158.446 33.6902 161.07 34.4832C165.903 35.937 169.425 37.7401 171.634 39.8924C173.843 42.0447 174.947 44.7257 174.947 47.9354C174.947 51.5037 173.597 54.3027 170.897 56.3323C168.197 58.362 164.563 59.3768 159.994 59.3768C156.822 59.3768 153.933 58.7962 151.328 57.6351C148.722 56.4739 146.735 54.8833 145.366 52.8631C143.998 50.8429 143.313 48.5018 143.313 45.8397L151.838 45.8397C151.838 50.3898 154.556 52.6649 159.994 52.6649C162.014 52.6649 163.591 52.2542 164.723 51.4329C165.856 50.6116 166.423 49.4647 166.423 47.992Z" fill-rule="evenodd"/>
+<path clip-path="url(#TextBounds_2)" d="M214.256 58.8104L205.76 58.8104L205.76 41.1385L189.192 41.1385L189.192 58.8104L180.696 58.8104L180.696 17.576L189.192 17.576L189.192 34.285L205.76 34.285L205.76 17.576L214.256 17.576L214.256 58.8104Z" fill-rule="evenodd"/>
+<path clip-path="url(#TextBounds_2)" d="M236.94 43.7156L230.172 43.7156L230.172 58.8104L221.676 58.8104L221.676 17.576L236.997 17.576C241.868 17.576 245.625 18.6616 248.268 20.8328C250.912 23.0041 252.233 26.0721 252.233 30.0369C252.233 32.8501 251.624 35.1959 250.406 37.0745C249.189 38.9531 247.343 40.4494 244.87 41.5633L253.791 58.4139L253.791 58.8104L244.672 58.8104L236.94 43.7156ZM230.172 36.8338L237.025 36.8338C239.159 36.8338 240.811 36.291 241.981 35.2054C243.152 34.1198 243.737 32.6235 243.737 30.7166C243.737 28.772 243.185 27.2427 242.08 26.1287C240.976 25.0148 239.281 24.4578 236.997 24.4578L230.172 24.4578L230.172 36.8338Z" fill-rule="evenodd"/>
+<path clip-path="url(#TextBounds_2)" d="M267.724 58.8104L259.228 58.8104L259.228 17.576L267.724 17.576L267.724 58.8104Z" fill-rule="evenodd"/>
+<path clip-path="url(#TextBounds_2)" d="M300.406 41.9598L284.093 41.9598L284.093 58.8104L275.597 58.8104L275.597 17.576L302.445 17.576L302.445 24.4578L284.093 24.4578L284.093 35.1063L300.406 35.1063L300.406 41.9598Z" fill-rule="evenodd"/>
+<path clip-path="url(#TextBounds_2)" d="M338.978 24.4578L326.347 24.4578L326.347 58.8104L317.851 58.8104L317.851 24.4578L305.39 24.4578L305.39 17.576L338.978 17.576L338.978 24.4578Z" fill-rule="evenodd"/>
+</g>
+</g>
+</svg>
