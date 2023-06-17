@@ -44,7 +44,8 @@ class ImportCommand extends Command
                 'id' => $font->id,
                 'slug' => $font->name,
                 'name' => $font->title,
-                'zip_file' => $font->file,
+                'zip_file' => $font->zip_file,
+                'ttf_file' => $font->ttf_file,
             ]);
         }
     }
