@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 
 class ImportCommand extends Command
 {
-    protected $signature = 'import';
+    protected $signature = 'app:import';
 
     protected $description = 'Command description';
 

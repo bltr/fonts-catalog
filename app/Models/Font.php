@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Libs\Sitemap\Sitemapable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class Font extends Model
+class Font extends Model implements Sitemapable
 {
     use HasFactory;
 
@@ -27,5 +28,10 @@ class Font extends Model
     public function getTtfFileUrlAttribute()
     {
         return Storage::disk('public')->url(static::FONTS_DIR . '/' . $this->attributes['ttf_file']);
+    }
+
+    public function path(): string
+    {
+        return route('font', $this);
     }
 }
