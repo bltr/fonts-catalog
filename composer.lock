@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d432ac394f22fdb854d00092b966cd35",
+    "content-hash": "121285a443e968ed169f7eae2267ea1e",
     "packages": [
         {
             "name": "brick/math",
@@ -976,6 +976,75 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "illuminatech/url-trailing-slash",
+            "version": "1.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminatech/url-trailing-slash.git",
+                "reference": "46e2184b26871af63ccc5b0ada34fea98ae63d6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminatech/url-trailing-slash/zipball/46e2184b26871af63ccc5b0ada34fea98ae63d6a",
+                "reference": "46e2184b26871af63ccc5b0ada34fea98ae63d6a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/routing": "^6.0 || ^7.7.0 || ^8.0 || ^9.0 || ^10.0"
+            },
+            "require-dev": {
+                "illuminate/config": "*",
+                "illuminate/events": "*",
+                "phpunit/phpunit": "^8.0 || ^9.3 || ^10.0.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminatech\\UrlTrailingSlash\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "Allows enforcing URL routes with or without trailing slash",
+            "keywords": [
+                "laravel",
+                "route",
+                "routing",
+                "slash",
+                "trailing",
+                "url"
+            ],
+            "support": {
+                "issues": "https://github.com/illuminatech/url-trailing-slash/issues",
+                "source": "https://github.com/illuminatech/url-trailing-slash",
+                "wiki": "https://github.com/illuminatech/url-trailing-slash/wiki"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/klimov-paul",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/klimov_paul",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2023-02-27T09:28:34+00:00"
         },
         {
             "name": "kalnoy/nestedset",

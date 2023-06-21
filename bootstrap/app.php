@@ -41,6 +41,9 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+// register trailing slashes routing
+$app->register(new Illuminatech\UrlTrailingSlash\RoutingServiceProvider($app));
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

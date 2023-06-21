@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Front\CategoryController;
+use App\Http\Controllers\Front\FontController;
+use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Controllers\Front\HomeController::class)->name('home');
-Route::get('/font_types/{category:slug}', \App\Http\Controllers\Front\CategoryController::class)->name('category');
-Route::get('/font/{font:slug}', \App\Http\Controllers\Front\FontController::class)->name('font');
+Route::get('/', HomeController::class)->name('home');
+Route::get('/font_types/{category:slug}/', CategoryController::class)->name('category');
+Route::get('/font/{font:slug}/', FontController::class)->name('font');

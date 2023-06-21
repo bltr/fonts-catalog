@@ -730,7 +730,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ url('') }}">
             <img src="{{ url('logo.svg') }}" alt="{{ config('app.name') }}">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
