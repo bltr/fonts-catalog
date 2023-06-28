@@ -5,9 +5,19 @@
                 <li class="page-item disabled">
                     <span class="page-link py-3 px-4">«</span>
                 </li>
+            @elseif($paginator->currentPage() === 2)
+                <li class="page-item">
+                    <a class="page-link py-3 px-4"
+                       href="{{ route(request()->route()->getName(), ['page' => null] + request()->route()->parameters()) }}"
+                    >
+                        «
+                    </a>
+                </li>
             @else
                 <li class="page-item">
-                    <a class="page-link py-3 px-4" href="{{ $paginator->previousPageUrl() }}">
+                    <a class="page-link py-3 px-4"
+                       href="{{ route(request()->route()->getName(), ['page' => 'page/' . ($paginator->currentPage() - 1)] + request()->route()->parameters()) }}"
+                    >
                         «
                     </a>
                 </li>
@@ -15,7 +25,11 @@
 
             @if ($paginator->hasMorePages())
                 <li class="page-item">
-                    <a class="page-link py-3 px-4" href="{{ $paginator->nextPageUrl() }}">»</a>
+                    <a class="page-link py-3 px-4"
+                       href="{{ route(request()->route()->getName(), ['page' => 'page/' . ($paginator->currentPage() + 1)] + request()->route()->parameters()) }}"
+                    >
+                        »
+                    </a>
                 </li>
             @else
                 <li class="page-item disabled">

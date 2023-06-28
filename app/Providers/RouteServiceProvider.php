@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,24 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+        });
+
+        $this->paginationParameter();
+    }
+
+    public function paginationParameter(): void
+    {
+        Paginator::currentPageResolver(function () {
+            return request()->route()->parameter('page');
+        });
+
+        Route::pattern('page', 'page/[0-9]+');
+
+        Route::bind('page', function (string $value) {
+            $value = (int) trim($value, '/page');
+            $value === 1 && abort(404);
+
+            return $value;
         });
     }
 }

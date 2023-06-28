@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class)->name('home');
-Route::get('/font_types/{category:slug}/', CategoryController::class)->name('category');
+Route::get('/{page?}/', HomeController::class)->name('home');
+Route::get('/font_types/{category:slug}/{page?}/', CategoryController::class)->name('category');
 Route::get('/font/{font:slug}/', FontController::class)->name('font');
