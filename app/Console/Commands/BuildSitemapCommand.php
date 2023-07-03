@@ -27,9 +27,24 @@ class BuildSitemapCommand extends Command
 
     public function handle(SitemapBuilder $sitemap, IndexBuilder $index)
     {
+        $this->clear();
         $this->categories($sitemap);
         $this->fonts($sitemap);
         $this->index($index);
+    }
+
+    private function clear()
+    {
+        $font_sitemaps = glob(public_path(substr(self::FONTS_SITEMAP, 0, 15)) . '*');
+        foreach ($font_sitemaps as $sitemap) {
+            unlink($sitemap);
+        }
+
+        $sitemap_index = public_path(self::SITEMAP_INDEX);
+        is_file($sitemap_index) && unlink($sitemap_index);
+
+        $sitemap = public_path(self::CATEGORIES_SITEMAP);
+        is_file($sitemap) && unlink($sitemap);
     }
 
     public function categories(SitemapBuilder $sitemap): void
