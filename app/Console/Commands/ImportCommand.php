@@ -27,7 +27,7 @@ class ImportCommand extends Command
             Category::create([
                 'id' => $category->term_id,
                 'slug' => $category->slug,
-                'name' => $category->name,
+                'name' => htmlspecialchars_decode($category->name),
                 'parent_id' => $category->parent === 0 ? null : $category->parent,
             ]);
         }
@@ -43,7 +43,7 @@ class ImportCommand extends Command
             Font::create([
                 'id' => $font->id,
                 'slug' => $font->name,
-                'name' => $font->title,
+                'name' => htmlspecialchars_decode($font->title),
                 'zip_file' => $font->zip_file,
                 'ttf_file' => $font->ttf_file,
             ]);
