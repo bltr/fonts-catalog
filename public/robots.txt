@@ -1,2 +1,6 @@
 User-agent: *
-Disallow:
+Disallow: /*?
+Allow: /*.css
+Allow: /*.js
+
+Sitemap: https://allshrift.ru/wp-sitemap.xml
