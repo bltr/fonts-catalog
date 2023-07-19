@@ -731,35 +731,37 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('') }}">
-            <img src="{{ url('logo.svg') }}" alt="{{ config('app.name') }}">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('category', 'rukopisnye') }}">Рукописные</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('category', 'goticheskie') }}">Готические</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('category', 'dekorativnye') }}">Декоративные</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('category', 'prazdniki') }}">Праздники</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('category', 'kartinki_ikonki') }}">Картинки, иконки</a>
-                </li>
-            </ul>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-secondary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('') }}">
+                <img src="{{ url('logo.svg') }}" alt="{{ config('app.name') }}">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category', 'rukopisnye') }}">Рукописные</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category', 'goticheskie') }}">Готические</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category', 'dekorativnye') }}">Декоративные</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category', 'prazdniki') }}">Праздники</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category', 'kartinki_ikonki') }}">Картинки, иконки</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
 
 <div class="container">
     <div class="row my-5">
@@ -773,13 +775,13 @@
     </div>
 </div>
 
-<div class="container-fluid bg-body-secondary">
+<footer class="container-fluid bg-body-secondary">
     <div class="row p-4">
-        <footer class="col text-center">
+        <div class="col text-center">
             © 2008-2023 ALLSHRIFT.RU
-        </footer>
+        </div>
     </div>
-</div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
