@@ -3,8 +3,8 @@
 @section('content')
     <x-breadcrumbs :breadcrumbs="$breadcrumbs"/>
 
-    <article>
-        <h1 class="mt-5">Шрифт {{ $font->name }}</h1>
+    <article itemscope itemtype="http://schema.org/Article">
+        <h1 class="mt-5" itemprop="headline">Шрифт {{ $font->name }}</h1>
 
         <div class="social-buttons my-4">
             <span class="social-button social-button--vkontakte" data-social="vk"></span>
@@ -13,7 +13,7 @@
             <span class="social-button social-button--whatsapp" data-social="whatsapp"></span>
         </div>
 
-        <div>
+        <div itemprop="articleBody">
             <p class="fs-5">Ниже можно скачать шрифт Staubiges Vergnügen в формате TTF (OTF) на английском и русском языке.</p>
 
             <style>
