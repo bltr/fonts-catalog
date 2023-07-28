@@ -9,6 +9,7 @@
     <link rel="manifest" href="/site.webmanifest">
 
     @vite(['resources/js/app.js'])
+    @stack('style')
 </head>
 <body>
 
