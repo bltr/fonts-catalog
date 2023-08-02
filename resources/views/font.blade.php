@@ -3,6 +3,8 @@
 @section('content')
     <x-breadcrumbs :breadcrumbs="$breadcrumbs"/>
 
+    <x-block block-name="font-top" />
+
     <article itemscope itemtype="http://schema.org/Article">
         <h1 class="mt-5" itemprop="headline">Шрифт {{ $font->name }}</h1>
 
@@ -75,6 +77,8 @@
                 Вы можете <strong>скачать шрифт «{{ $font->name }}»</strong> одним zip-архивом, в архиве 1 шрифт.
             </p>
         </div>
+
+        <x-block block-name="font-bottom" />
 
         <div class="entry-social my-5">
             <div class="social-buttons">

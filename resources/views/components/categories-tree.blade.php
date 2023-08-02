@@ -11,7 +11,7 @@
                 @include('components.categories-tree', ['categories' => $category->children, 'font_size' => 'fs-6'])
             @endif
         </li>
-        @if($loop->iteration === 15)
+        @if($loop->iteration === 10)
             <span class="text-secondary small" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $category->id }}">
                 раскрыть
                 &bigtriangledown;
@@ -19,7 +19,7 @@
             <div class="collapse" id="collapse-{{ $category->id }}">
         @endif
     @endforeach
-    @if($categories->count() > 15)
+    @if($categories->count() > 10)
         </div>
     @endif
 </ul>

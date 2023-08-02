@@ -10,6 +10,8 @@
 
     @vite(['resources/js/app.js'])
     @stack('style')
+
+    <x-block block-name="before_end_of_head_tag" />
 </head>
 <body>
 
@@ -55,6 +57,8 @@
             <nav>
                 <x-categories-tree />
             </nav>
+
+            <x-block block-name="sidebar" />
         </aside>
     </div>
 </div>
@@ -67,5 +71,6 @@
     </div>
 </footer>
 
+<x-block block-name="before_end_of_body_tag" />
 </body>
 </html>

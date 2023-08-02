@@ -1,5 +1,8 @@
 @foreach($fonts as $font)
     <div itemscope itemtype="https://schema.org/Collection">
+        @if (in_array($loop->iteration, [1, 2, 3, 4]))
+            <x-block block-name="font_listing-{{ $loop->iteration }}" />
+        @endif
         <a href="{{ route('font', $font) }}"
            class="text-decoration-none fs-3 text-info"
         >
