@@ -34,8 +34,8 @@ class CategoryController extends Controller
     private function setMeta(Category $category, int $page)
     {
         $canonical_url = route('category', $category);
-        $title = "Категория шрифтов «{$category->name}»: скачать бесплатно";
-        $desc = "Описание и просмотр шрифтов которые относятся к категории «{$category->name}».";
+        $title = "Категория шрифтов «{$category->name}» онлайн: скачать бесплатно";
+        $desc = "Описание и просмотр шрифтов категории «{$category->name}».";
 
         if ($page === 1) {
             Meta::setRobots('index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');

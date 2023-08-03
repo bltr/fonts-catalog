@@ -30,8 +30,8 @@ class FontController extends Controller
     private function setMeta(Font $font)
     {
         $canonical_url = route('font', $font);
-        $title = "Шрифт {$font->name}: скачать бесплатно, символы, раскладки";
-        $desc = "Вы можете просмотреть и скачать шрифт «{$font->name}» одним zip-архивом, в архиве 1 шрифт.";
+        $title = "Шрифт {$font->name} онлайн: скачать бесплатно, символы, раскладки";
+        $desc = "Вы можете просмотреть и скачать шрифт «{$font->name}».";
 
         Meta::setTitle($title)
             ->setDescription($desc)
