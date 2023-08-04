@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\Front\CategoryController;
 use App\Http\Controllers\Front\FontController;
 use App\Http\Controllers\Front\HomeController;
@@ -19,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{page?}/', HomeController::class)->name('home');
 Route::get('/font_types/{category:slug}/{page?}/', CategoryController::class)->name('category');
 Route::get('/font/{font:slug}/', FontController::class)->name('font');
+
+Route::fallback([NotFoundController::class, '_404']);
+
