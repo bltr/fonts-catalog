@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "abordage/laravel-last-modified": "^0.2.0",
         "butschster/meta-tags": "^2.3",
         "guzzlehttp/guzzle": "^7.2",
         "illuminatech/url-trailing-slash": "^1.1",

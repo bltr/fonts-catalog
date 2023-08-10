@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use Abordage\LastModified\Facades\LastModified;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Butschster\Head\Facades\Meta;
@@ -15,6 +16,7 @@ class CategoryController extends Controller
 
     public function __invoke(Category $category, $page = 1)
     {
+        LastModified::set($category->updated_at);
         $fonts = $category->fonts()->simplePaginate(static::PER_PAGE);
         $breadcrumbs = $this->getBreadcrumbs($category);
         $this->setMeta($category, $page);

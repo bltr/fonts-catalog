@@ -3,6 +3,24 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+$path_hash = sha1($_SERVER['REQUEST_URI']);
+$path = 'page-cache/' . substr($path_hash, 0, 2) . '/' . $path_hash;
+$full_path = '../storage/app/' . $path;
+$full_path = glob($full_path . '*')[0] ?? null;
+if (!is_null($full_path)) {
+    $timestamp = explode('#', $full_path)[1];
+    header('last-modified: ' . (new Datetime())->setTimestamp($timestamp)->format("D, d M Y H:i:s \G\M\T"));
+    $if_modified_since = $_SERVER['HTTP_IF_MODIFIED_SINCE'] ?? null;
+    $if_modified_since = strtotime($if_modified_since);
+
+    if (!is_null($if_modified_since) && $timestamp < $if_modified_since) {
+        header('HTTP/1.1 304 Not Modified');
+    } else {
+        echo file_get_contents($full_path);
+    }
+    exit;
+}
+
 define('LARAVEL_START', microtime(true));
 
 /*
@@ -46,6 +64,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+/** @var Kernel $kernel */
 $kernel = $app->make(Kernel::class);
 
 $response = $kernel->handle(
@@ -53,3 +72,6 @@ $response = $kernel->handle(
 )->send();
 
 $kernel->terminate($request, $response);
+
+$path .= '#' . strtotime($response->headers->get('last-modified'));
+\Illuminate\Support\Facades\Storage::put($path, $response->getContent());

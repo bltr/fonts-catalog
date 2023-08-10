@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use Abordage\LastModified\Facades\LastModified;
 use App\Http\Controllers\Controller;
 use App\Models\Font;
 use Butschster\Head\Facades\Meta;
@@ -12,6 +13,7 @@ class FontController extends Controller
 {
     public function __invoke(Font $font)
     {
+        LastModified::set($font->updated_at);
         $breadcrumbs = $this->getBreadcrumbs($font);
         $this->setMeta($font);
 

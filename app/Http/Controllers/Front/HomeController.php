@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers\Front;
 
+use Abordage\LastModified\Facades\LastModified;
 use App\Models\Font;
 use Butschster\Head\Facades\Meta;
 use Butschster\Head\Packages\Entities\OpenGraphPackage;
 use Butschster\Head\Packages\Entities\TwitterCardPackage;
+use Illuminate\Support\Carbon;
 
 class HomeController
 {
     private const PER_PAGE = 20;
+    const LAST_MODIFIED = 'Tue, 23 May 2023 09:59:51 GMT';
 
     public function __invoke(int $page = 1)
     {
+        LastModified::set(Carbon::make(static::LAST_MODIFIED));
         $fonts = Font::simplePaginate(static::PER_PAGE);
         $this->setMeta($page);
 
