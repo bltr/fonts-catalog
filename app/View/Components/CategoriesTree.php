@@ -11,11 +11,7 @@ class CategoriesTree extends Component
 {
     public function render(): View|Closure|string
     {
-        $categories = Category::withDepth()
-            ->withCount('fonts')
-            ->orderBy('fonts_count', 'desc')
-            ->get()
-            ->toTree();
+        $categories = Category::getTree();
 
         return view('components.categories-tree', compact('categories'));
     }

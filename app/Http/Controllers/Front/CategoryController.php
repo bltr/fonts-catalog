@@ -18,19 +18,10 @@ class CategoryController extends Controller
     {
         LastModified::set($category->updated_at);
         $fonts = $category->fonts()->simplePaginate(static::PER_PAGE);
-        $breadcrumbs = $this->getBreadcrumbs($category);
+        $breadcrumbs = $category->getBreadcrubms();
         $this->setMeta($category, $page);
 
         return view('category', compact('category', 'fonts', 'breadcrumbs'));
-    }
-
-    private function getBreadcrumbs(Category $category)
-    {
-        return $category->ancestors()
-            ->withDepth()
-            ->orderBy('depth')
-            ->get()
-            ->map(fn($category) => ['slug' => $category->slug, 'name' => $category->name]);
     }
 
     private function setMeta(Category $category, int $page)

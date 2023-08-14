@@ -14,7 +14,11 @@ class Block extends Component
     public function __construct(
         public string $blockName,
     ) {
-        $this->block = BlockModel::firstOrCreate(['name' => $blockName]);
+        $block = BlockModel::allCached()->get($this->blockName);
+        if (is_null($block)) {
+            $block = BlockModel::create(['name' => $blockName]);
+        }
+        $this->block = $block;
     }
 
     public function render(): View|Closure|string

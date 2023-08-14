@@ -14,19 +14,10 @@ class FontController extends Controller
     public function __invoke(Font $font)
     {
         LastModified::set($font->updated_at);
-        $breadcrumbs = $this->getBreadcrumbs($font);
+        $breadcrumbs = $font->getBreadcrumbs();
         $this->setMeta($font);
 
         return view('font', compact('font', 'breadcrumbs'));
-    }
-
-    public function getBreadcrumbs(Font $font)
-    {
-        return $font->categories()
-            ->orderBy('depth')
-            ->withDepth()
-            ->get()
-            ->map(fn($category) => ['slug' => $category->slug, 'name' => $category->name]);
     }
 
     private function setMeta(Font $font)
