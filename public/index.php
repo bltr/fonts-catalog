@@ -11,9 +11,8 @@ if (!is_null($full_path)) {
     $timestamp = explode('#', $full_path)[1];
     header('last-modified: ' . (new Datetime())->setTimestamp($timestamp)->format("D, d M Y H:i:s \G\M\T"));
     $if_modified_since = $_SERVER['HTTP_IF_MODIFIED_SINCE'] ?? null;
-    $if_modified_since = strtotime($if_modified_since);
 
-    if (!is_null($if_modified_since) && $timestamp < $if_modified_since) {
+    if (!is_null($if_modified_since) && $timestamp < strtotime($if_modified_since) ) {
         header('HTTP/1.1 304 Not Modified');
     } else {
         echo file_get_contents($full_path);
