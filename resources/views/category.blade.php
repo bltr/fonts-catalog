@@ -7,5 +7,5 @@
 
     <x-font-list :fonts="$fonts" />
 
-    <x-pagination :paginator="$fonts" />
+    <x-pagination :paginator="$fonts" :currentRouteParameters="compact('category')" />
 @endsection

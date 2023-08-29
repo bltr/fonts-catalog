@@ -8,7 +8,7 @@
             @elseif($paginator->currentPage() === 2)
                 <li class="page-item">
                     <a class="page-link py-3 px-4"
-                       href="{{ route(request()->route()->getName(), ['page' => null] + request()->route()->parameters()) }}"
+                       href="{{ route(request()->route()->getName(), ['page' => null] + $currentRouteParameters) }}"
                     >
                         «
                     </a>
@@ -16,7 +16,7 @@
             @else
                 <li class="page-item">
                     <a class="page-link py-3 px-4"
-                       href="{{ route(request()->route()->getName(), ['page' => 'page/' . ($paginator->currentPage() - 1)] + request()->route()->parameters()) }}"
+                       href="{{ route(request()->route()->getName(), ['page' => 'page/' . ($paginator->currentPage() - 1)] + $currentRouteParameters) }}"
                     >
                         «
                     </a>
@@ -26,7 +26,7 @@
             @if ($paginator->hasMorePages())
                 <li class="page-item">
                     <a class="page-link py-3 px-4"
-                       href="{{ route(request()->route()->getName(), ['page' => 'page/' . ($paginator->currentPage() + 1)] + request()->route()->parameters()) }}"
+                       href="{{ route(request()->route()->getName(), ['page' => 'page/' . ($paginator->currentPage() + 1)] + $currentRouteParameters) }}"
                     >
                         »
                     </a>
