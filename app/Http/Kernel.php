@@ -14,7 +14,7 @@ class Kernel extends HttpKernel
      * @var array<int, class-string|string>
      */
     protected $middleware = [
-        \App\Http\Middleware\SeoRedirects::class,
+//        \App\Http\Middleware\SeoRedirects::class,
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
@@ -31,6 +31,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+            \App\Http\Middleware\HtmlMini::class,
             // enable automatic redirection on incorrect URL trailing slashes
             \Illuminatech\UrlTrailingSlash\Middleware\RedirectTrailingSlash::class,
             \App\Http\Middleware\EncryptCookies::class,
