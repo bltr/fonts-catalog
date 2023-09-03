@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    private const PER_PAGE = 20;
+    private const PER_PAGE = 8;
 
     public function __invoke(Category $category, $page = 1)
     {

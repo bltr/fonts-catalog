@@ -11,7 +11,7 @@ use Illuminate\Support\Carbon;
 
 class HomeController
 {
-    private const PER_PAGE = 20;
+    private const PER_PAGE = 8;
     const LAST_MODIFIED = 'Tue, 23 May 2023 09:59:51 GMT';
 
     public function __invoke(int $page = 1)

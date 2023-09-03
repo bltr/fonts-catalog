@@ -13,6 +13,8 @@
             @font-face {
                 font-family: "{{ $font->ttf_file }}";
                 src: url("{{ $font->ttf_file_url }}");
+                font-style: normal;
+                font-display: swap;
             }
             .font-preview-{{ sha1($font->name) }} {
                 font-family: "{{ $font->ttf_file }}";
