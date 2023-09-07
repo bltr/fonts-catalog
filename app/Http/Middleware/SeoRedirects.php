@@ -9,17 +9,41 @@ class SeoRedirects
 {
     public function handle(Request $request, Closure $next)
     {
-        $path = ltrim($request->getRequestUri(), '/');
+        $path = $request->getRequestUri();
+        $need_redirection = false;
+        $need_secure = false;
 
         if (!$request->secure() && app()->isProduction()) {
-            return redirect()->secure($path, 301);
+            $need_redirection = $need_secure = true;
         }
 
         if (strtolower(head(explode('.', $request->getHost()))) === 'www') {
+            $need_redirection = true;
             $host = parse_url(config('app.url'));
             $request->headers->set('host', $host['host'] . ':' . $host['port']);
-            return redirect()->to($path, 301);
         }
+
+        if (str_contains($path, '//')) {
+            $need_redirection = true;
+            $path = preg_replace('@/+@', '/', $path);
+            if ($path === '/') {
+                $path = config('app.url') . '/';
+            }
+        }
+
+        if (str_contains($path, 'index.php')) {
+            $need_redirection = true;
+            $path = config('app.url') . '/';
+        }
+
+        $path = ltrim($path, '/'); // что бы не было задвоек /
+
+        if ($need_redirection && !$need_secure) {
+            return redirect()->to($path, 301);
+        } elseif($need_secure) {
+            return redirect()->secure($path, 301);
+        }
+
 
         return $next($request);
     }
