@@ -6,10 +6,17 @@ use Illuminate\Support\Collection;
 
 class SitemapBuilder
 {
+    private array $urls = [];
+
+    public function addUrl(string $url, string $last_mod)
+    {
+        $this->urls[] = compact('url', 'last_mod');
+    }
+
     public function generate(Collection $items, string $file)
     {
         $content = $this->urlset(
-            $this->urls($items)
+            $this->urls($items) . "\n" . $this->additionalUrls()
         );
 
         file_put_contents($file, $content);
@@ -27,17 +34,24 @@ class SitemapBuilder
 
     private function urls(Collection $items): string
     {
-        return $items->map(function (Sitemapable|string $item) {
-            $url = is_string($item) ? $item : $item->path();
-            return $this->url($url);
+        return $items->map(function (Sitemapable $item) {
+            return $this->url($item->path(), $item->updated_at);
         })->implode("\n");
     }
 
-    private function url(string $url): string
+    private function additionalUrls(): string
+    {
+        return collect($this->urls)->map(function ($item) {
+            return $this->url($item['url'], $item['last_mod']);
+        })->implode("\n");
+    }
+
+    private function url(string $url, string $last_mod): string
     {
         return <<<XML
             <url>
                 <loc>$url</loc>
+                <lastmod>$last_mod</lastmod>
             </url>
         XML;
     }

@@ -12,11 +12,12 @@ use Illuminate\Support\Carbon;
 class HomeController
 {
     private const PER_PAGE = 8;
-    const LAST_MODIFIED = 'Tue, 23 May 2023 09:59:51 GMT';
+    const LAST_MODIFIED = '23.05.2023 09:59:51';
 
     public function __invoke(int $page = 1)
     {
-        LastModified::set(Carbon::make(static::LAST_MODIFIED));
+        $updatedAt = Carbon::make(static::LAST_MODIFIED);
+        LastModified::set($updatedAt);
         $fonts = Font::simplePaginate(static::PER_PAGE);
         $this->setMeta($page);
 

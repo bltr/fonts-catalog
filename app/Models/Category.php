@@ -30,6 +30,11 @@ class Category extends Model implements Sitemapable
         return route('category', $this);
     }
 
+    public function updated_at(): string
+    {
+        return $this->updated_at->toW3cString();
+    }
+
     public static function getTree(): Collection
     {
         return Cache::rememberForever(

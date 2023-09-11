@@ -2,11 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\Front\HomeController;
 use App\Libs\Sitemap\IndexBuilder;
 use App\Libs\Sitemap\SitemapBuilder;
 use App\Models\Category;
 use App\Models\Font;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
 class BuildSitemapCommand extends Command
@@ -49,7 +51,8 @@ class BuildSitemapCommand extends Command
 
     public function categories(SitemapBuilder $sitemap): void
     {
-        $sitemap->generate(Category::all()->prepend(url('/')), public_path(self::CATEGORIES_SITEMAP));
+        $sitemap->addUrl(url(''), Carbon::make(HomeController::LAST_MODIFIED)->toW3cString());
+        $sitemap->generate(Category::all(), public_path(self::CATEGORIES_SITEMAP));
     }
 
     private function fonts(SitemapBuilder $sitemap)

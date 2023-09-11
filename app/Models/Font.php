@@ -39,6 +39,11 @@ class Font extends Model implements Sitemapable
         return route('font', $this);
     }
 
+    public function updated_at(): string
+    {
+        return $this->updated_at->toW3cString();
+    }
+
     public function getBreadcrumbs(): Collection
     {
         return Cache::rememberForever(
