@@ -8,7 +8,7 @@ $path = 'page-cache/' . substr($path_hash, 0, 2) . '/' . $path_hash;
 $full_path = '../storage/app/' . $path;
 $full_path = glob($full_path . '*')[0] ?? null;
 if (!is_null($full_path)) {
-    $timestamp = explode('#', $full_path)[1];
+    $timestamp = (int) explode('#', $full_path)[1];
     header('last-modified: ' . (new Datetime())->setTimestamp($timestamp)->format("D, d M Y H:i:s \G\M\T"));
     $if_modified_since = $_SERVER['HTTP_IF_MODIFIED_SINCE'] ?? null;
 
