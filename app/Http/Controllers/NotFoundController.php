@@ -15,6 +15,6 @@ class NotFoundController extends Controller
            'ip' => $request->ip()
         ]);
 
-        return view('errors.404');
+        abort(404);
     }
 }
