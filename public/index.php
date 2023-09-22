@@ -72,5 +72,7 @@ $response = $kernel->handle(
 
 $kernel->terminate($request, $response);
 
-$path .= '#' . strtotime($response->headers->get('last-modified'));
-\Illuminate\Support\Facades\Storage::put($path, $response->getContent());
+if ($response->getStatusCode() < 300) {
+    $path .= '#' . strtotime($response->headers->get('last-modified'));
+    \Illuminate\Support\Facades\Storage::put($path, $response->getContent());
+}
