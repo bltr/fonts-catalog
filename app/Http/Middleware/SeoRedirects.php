@@ -33,10 +33,9 @@ class SeoRedirects
 
         if (str_contains($path, 'index.php')) {
             $need_redirection = true;
-            $path = config('app.url') . '/';
+            $substr = substr($path, strlen('index.php') + 1);
+            $path = config('app.url') . ($substr ?: '/');
         }
-
-        $path = ltrim($path, '/'); // что бы не было задвоек /
 
         if ($need_redirection && !$need_secure) {
             return redirect()->to($path, 301);
