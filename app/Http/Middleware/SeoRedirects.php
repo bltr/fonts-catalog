@@ -20,7 +20,11 @@ class SeoRedirects
         if (strtolower(head(explode('.', $request->getHost()))) === 'www') {
             $need_redirection = true;
             $host = parse_url(config('app.url'));
-            $request->headers->set('host', $host['host'] . ':' . $host['port']);
+            $header = $host['host'];
+            if (!empty($host['port'])) {
+                $header .= ':' . $host['port'];
+            }
+            $request->headers->set('host', $header);
         }
 
         if (str_contains($path, '//')) {
