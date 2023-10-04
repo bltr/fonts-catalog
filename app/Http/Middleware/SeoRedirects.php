@@ -30,15 +30,16 @@ class SeoRedirects
         if (str_contains($path, '//')) {
             $need_redirection = true;
             $path = preg_replace('@/+@', '/', $path);
-            if ($path === '/') {
-                $path = config('app.url') . '/';
-            }
         }
 
         if (str_contains($path, 'index.php')) {
             $need_redirection = true;
             $substr = substr($path, strlen('index.php') + 1);
-            $path = config('app.url') . ($substr ?: '/');
+            $path = $substr ?: '/';
+        }
+
+        if ($path === '/') {
+            $path = config('app.url') . '/';
         }
 
         if ($need_redirection && !$need_secure) {
