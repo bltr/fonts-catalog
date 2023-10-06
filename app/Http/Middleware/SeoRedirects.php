@@ -35,7 +35,7 @@ class SeoRedirects
         if (str_contains($path, 'index.php')) {
             $need_redirection = true;
             $substr = substr($path, strlen('index.php') + 1);
-            $path = $substr ?: '/';
+            $path = config('app.url') . ($substr ?: '/');
         }
 
         if ($path === '/') {
