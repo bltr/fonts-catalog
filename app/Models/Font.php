@@ -24,6 +24,11 @@ class Font extends Model implements Sitemapable
         return $this->belongsToMany(Category::class);
     }
 
+    public function getNameHashAttribute()
+    {
+        return sha1($this->name);
+    }
+
     public function getZipFileUrlAttribute()
     {
         return Storage::disk('public')->url(static::FONTS_DIR . '/' . $this->attributes['zip_file']);
