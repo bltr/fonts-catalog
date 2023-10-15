@@ -3,22 +3,24 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
-//$path_hash = sha1($_SERVER['REQUEST_URI']);
-//$path = 'page-cache/' . substr($path_hash, 0, 2) . '/' . $path_hash;
-//$full_path = '../storage/app/' . $path;
-//$full_path = glob($full_path . '*')[0] ?? null;
-//if (!is_null($full_path)) {
-//    $timestamp = (int) explode('#', $full_path)[1];
-//    header('last-modified: ' . (new Datetime())->setTimestamp($timestamp)->format("D, d M Y H:i:s \G\M\T"));
-//    $if_modified_since = $_SERVER['HTTP_IF_MODIFIED_SINCE'] ?? null;
-//
-//    if (!is_null($if_modified_since) && $timestamp < strtotime($if_modified_since) ) {
-//        header('HTTP/1.1 304 Not Modified');
-//    } else {
-//        echo file_get_contents($full_path);
-//    }
-//    exit;
-//}
+if (!$_SERVER['SERVER_PROTOCOL'] === 'HTTP/1.1' && !str_starts_with($_SERVER['HTTP_HOST'], 'www.')) {
+    $path_hash = sha1($_SERVER['REQUEST_URI']);
+    $path = 'page-cache/' . substr($path_hash, 0, 2) . '/' . $path_hash;
+    $full_path = '../storage/app/' . $path;
+    $full_path = glob($full_path . '*')[0] ?? null;
+    if (!is_null($full_path)) {
+        $timestamp = (int)explode('#', $full_path)[1];
+        header('last-modified: ' . (new Datetime())->setTimestamp($timestamp)->format("D, d M Y H:i:s \G\M\T"));
+        $if_modified_since = $_SERVER['HTTP_IF_MODIFIED_SINCE'] ?? null;
+
+        if (!is_null($if_modified_since) && $timestamp < strtotime($if_modified_since)) {
+            header('HTTP/1.1 304 Not Modified');
+        } else {
+            echo file_get_contents($full_path);
+        }
+        exit;
+    }
+}
 
 define('LARAVEL_START', microtime(true));
 
@@ -72,7 +74,7 @@ $response = $kernel->handle(
 
 $kernel->terminate($request, $response);
 
-//if ($response->getStatusCode() < 300) {
-//    $path .= '#' . strtotime($response->headers->get('last-modified'));
-//    \Illuminate\Support\Facades\Storage::put($path, $response->getContent());
-//}
+if ($response->getStatusCode() < 300) {
+    $path .= '#' . strtotime($response->headers->get('last-modified'));
+    \Illuminate\Support\Facades\Storage::put($path, $response->getContent());
+}
