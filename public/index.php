@@ -3,7 +3,7 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
-if ($_SERVER['SERVER_PROTOCOL'] !== 'HTTP/1.1' && !str_starts_with($_SERVER['HTTP_HOST'], 'www.')) {
+if ($_SERVER['SERVER_PORT'] === '443' && !str_starts_with($_SERVER['HTTP_HOST'], 'www.')) {
     $path_hash = sha1($_SERVER['REQUEST_URI']);
     $path = 'page-cache/' . substr($path_hash, 0, 2) . '/' . $path_hash;
     $full_path = '../storage/app/' . $path;
